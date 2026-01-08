@@ -19,3 +19,6 @@ Inspired by Computational Physics -	Nicholas J. Giordano, Hisao Nakanish - Chapt
 ## Status
 This is an educational / exploratory project.
 
+## Run it
+
+Run `run.py`. Feel free to change the protein configuration in `config.toml` and customize `run.py` to your needs.
