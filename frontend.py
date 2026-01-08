@@ -150,15 +150,14 @@ def fixed_animation(config, temperature, iterations, stride=1, interval=100):
 
     grids = np.array(grids)
 
-    # ---- Colormap ----
-    # color 0 is for empty (-1), others for amino acids
+    # Colormap
     colors = ["white"] + [plt.cm.hsv((0.85 - 0.05 )* i / protein.length) for i in range(protein.length)]
     cmap = ListedColormap(colors)
 
     bounds = np.arange(-1.5, protein.length + 0.5, 1)
     norm = BoundaryNorm(bounds, cmap.N)
 
-    # ---- Figure ----
+    # Figure
     fig, ax = plt.subplots(figsize=(6, 6))
     im = ax.imshow(
         grids[0].T,
@@ -195,3 +194,4 @@ def fixed_animation(config, temperature, iterations, stride=1, interval=100):
 
     plt.show()
     return ani
+
