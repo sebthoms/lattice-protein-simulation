@@ -233,7 +233,7 @@ def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100
     )
 
     if save:
-        if animation_name = None:
+        if animation_name is None:
             ani.save(f"length{protein.length}_iterations{iterations}_temperature{temperature}.mp4", writer="ffmpeg", fps = 1000//interval)
         else:
             ani.save(animation_name, writer="ffmpeg", fps = 1000//interval)

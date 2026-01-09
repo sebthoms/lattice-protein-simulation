@@ -15,6 +15,7 @@ Inspired by Computational Physics -	Nicholas J. Giordano, Hisao Nakanish - Chapt
 - Python 3.11+
 - numpy
 - matplotlib
+- ffmpeg
 
 ## Status
 This is an educational / exploratory project.
