@@ -48,7 +48,7 @@ def fixed_temp_plot(config, temperature, iterations,
 
         if save:
             if plot_name is None:
-                plt.savefig(f'fixedplot_energy_length{protein.length}_iterations{iterations-1}_temp{temperature}.pdf')
+                plt.savefig(f'fixedplot_length_length{protein.length}_iterations{iterations-1}_temp{temperature}.pdf')
             else:
                 plt.savefig(plot_name)
 
