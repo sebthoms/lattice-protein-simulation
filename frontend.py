@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from matplotlib.colors import ListedColormap, BoundaryNorm
 
-def fixed_temp_plot(config, temperature, iterations, energy_plot = True, length_plot = True):
+def fixed_temp_plot(config, temperature, iterations,
+                    energy_plot = True, length_plot = True, save = False, plot_name = None):
 
     protein = Protein(config)
     model = StandardModel(config, temperature, protein)
@@ -29,6 +30,12 @@ def fixed_temp_plot(config, temperature, iterations, energy_plot = True, length_
         plt.xlabel('Iterations')
         plt.ylabel('Energy')
 
+        if save:
+            if plot_name is None:
+                plt.savefig(f'fixedplot_energy_length{protein.length}_iterations{iterations-1}_temp{temperature}.pdf')
+            else:
+                plt.savefig(plot_name)
+
         plt.show()
 
     if length_plot:
@@ -39,10 +46,17 @@ def fixed_temp_plot(config, temperature, iterations, energy_plot = True, length_
         plt.xlabel('Iterations')
         plt.ylabel('Length')
 
+        if save:
+            if plot_name is None:
+                plt.savefig(f'fixedplot_energy_length{protein.length}_iterations{iterations-1}_temp{temperature}.pdf')
+            else:
+                plt.savefig(plot_name)
+
         plt.show()
 
 
-def var_temp_plot(config, start_temp, end_temp, temp_step_nr, iterations, energy_plot = True, length_plot = True):
+def var_temp_plot(config, start_temp, end_temp, temp_step_nr, iterations,
+                  energy_plot = True, length_plot = True, save = False, plot_name = None):
 
     protein = Protein(config)
     model = StandardModel(config, start_temp, protein)
@@ -71,6 +85,12 @@ def var_temp_plot(config, start_temp, end_temp, temp_step_nr, iterations, energy
         plt.xlabel('Iterations')
         plt.ylabel('Energy / Temperature')
         plt.legend(['energy', 'temperature'])        
+
+        if save:
+            if plot_name is None:
+                plt.savefig(f'varplot_energy_length{protein.length}_iterations{iterations-1}_start{start_temp}_end{end_temp}.pdf')
+            else:
+                plt.savefig(plot_name)
         
         plt.show()
 
@@ -84,10 +104,17 @@ def var_temp_plot(config, start_temp, end_temp, temp_step_nr, iterations, energy
         plt.ylabel('Length / Temperature')
         plt.legend(['length', 'temperature'])        
 
+        if save:
+            if plot_name is None:
+                plt.savefig(f'varplot_length_length{protein.length}_iterations{iterations-1}_start{start_temp}_end{end_temp}.pdf')
+            else:
+                plt.savefig(plot_name)
+        
         plt.show()
 
 
-def var_temp_plot_avg(config, start_temp, end_temp, temp_step_nr, iterations_per_temp, energy_plot = True, length_plot = True):
+def var_temp_plot_avg(config, start_temp, end_temp, temp_step_nr, iterations_per_temp,
+                      energy_plot = True, length_plot = True, save = False, plot_name = None):
 
     protein = Protein(config)
     model = StandardModel(config, start_temp, protein)
@@ -121,6 +148,12 @@ def var_temp_plot_avg(config, start_temp, end_temp, temp_step_nr, iterations_per
         plt.xlabel('Iterations')
         plt.ylabel('Energy')
 
+        if save:
+            if plot_name is None:
+                plt.savefig(f'varplotavg_energy_length{protein.length}_iterations{iterations-1}_start{start_temp}_end{end_temp}.pdf')
+            else:
+                plt.savefig(plot_name)
+
         plt.show()
 
     if length_plot:
@@ -131,9 +164,16 @@ def var_temp_plot_avg(config, start_temp, end_temp, temp_step_nr, iterations_per
         plt.xlabel('Iterations')
         plt.ylabel('Length')
 
+        if save:
+            if plot_name is None:
+                plt.savefig(f'varplotavg_length_length{protein.length}_iterations{iterations-1}_start{start_temp}_end{end_temp}.pdf')
+            else:
+                plt.savefig(plot_name)
+
         plt.show()
 
-def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100):
+def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100, 
+                         save = False, animation_name = None):
     protein = Protein(config)
     model = StandardModel(config, temperature, protein)
 
@@ -192,7 +232,15 @@ def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100
         blit=True
     )
 
+    if save:
+        if animation_name = None:
+            ani.save(f"length{protein.length}_iterations{iterations}_temperature{temperature}.mp4", writer="ffmpeg", fps = 1000//interval)
+        else:
+            ani.save(animation_name, writer="ffmpeg", fps = 1000//interval)
+    # intervall is frame time in ms       
+
     plt.show()
     return ani
+
 
 
