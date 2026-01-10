@@ -173,7 +173,7 @@ def var_temp_plot_avg(config, start_temp, end_temp, temp_step_nr, iterations_per
         plt.show()
 
 def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100, 
-                         save = False, animation_name = None):
+                         save = False, animation_name = None, fps = 60):
     protein = Protein(config)
     model = StandardModel(config, temperature, protein)
 
@@ -236,7 +236,7 @@ def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100
         if animation_name is None:
             ani.save(f"length{protein.length}_iterations{iterations}_temperature{temperature}.mp4", writer="ffmpeg", fps = 1000//interval)
         else:
-            ani.save(animation_name, writer="ffmpeg", fps = 1000//interval)
+            ani.save(animation_name, writer="ffmpeg", fps = fps)
     # intervall is frame time in ms       
 
     plt.show()
