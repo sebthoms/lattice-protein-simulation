@@ -34,8 +34,8 @@ Run `run.py`. Feel free to change the protein configuration in `config.toml` and
 
 ![Example plot](examples/varplot_length_length30_iterations1000000_start10_end1.png)
 
-![Example plot](xamples/varplotavg_energy_length30_iterations100000_start10_end1.png)
+![Example plot](examples/varplotavg_energy_length30_iterations100000_start10_end1.png)
 
 ![Example plot](examples/varplotavg_length_length30_iterations100000_start10_end1.png)
 
-![Animation example](https://www.youtube.com/shorts/TeLX1Q-PlFI)
+https://www.youtube.com/shorts/TeLX1Q-PlFI
