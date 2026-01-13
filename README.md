@@ -26,18 +26,16 @@ Run `run.py`. Feel free to change the protein configuration in `config.toml` and
 
 ## Examples
 
-<img src="examples/fixedplot_energy_length30_iterations50000_temp2.png" width=50% height=50%>
+<img src="examples/fixedplot_energy_length30_iterations50000_temp2.png" width=75% height=75%>
 
-![Example plot](examples/fixedplot_energy_length30_iterations50000_temp2.png)
+<img src="examples/fixedplot_length_length30_iterations50000_temp2.png" width=75% height=75%>
 
-![Example plot](examples/fixedplot_length_length30_iterations50000_temp2.png)
+<img src="examples/varplot_energy_length30_iterations1000000_start10_end1.png" width=75% height=75%>
 
-![Example plot](examples/varplot_energy_length30_iterations1000000_start10_end1.png)
+<img src="examples/varplot_length_length30_iterations1000000_start10_end1.png" width=75% height=75%>
 
-![Example plot](examples/varplot_length_length30_iterations1000000_start10_end1.png)
+<img src="(examples/varplotavg_energy_length30_iterations100000_start10_end1.png" width=75% height=75%>
 
-![Example plot](examples/varplotavg_energy_length30_iterations100000_start10_end1.png)
-
-![Example plot](examples/varplotavg_length_length30_iterations100000_start10_end1.png)
+<img src="examples/varplotavg_length_length30_iterations100000_start10_end1.png" width=75% height=75%>
 
 https://www.youtube.com/shorts/TeLX1Q-PlFI
