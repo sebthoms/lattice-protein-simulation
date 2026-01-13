@@ -34,7 +34,7 @@ Run `run.py`. Feel free to change the protein configuration in `config.toml` and
 
 <img src="examples/varplot_length_length30_iterations1000000_start10_end1.png" width=75% height=75%>
 
-<img src="(examples/varplotavg_energy_length30_iterations100000_start10_end1.png" width=75% height=75%>
+<img src="examples/varplotavg_energy_length30_iterations100000_start10_end1.png" width=75% height=75%>
 
 <img src="examples/varplotavg_length_length30_iterations100000_start10_end1.png" width=75% height=75%>
 
