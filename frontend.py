@@ -54,6 +54,66 @@ def fixed_temp_plot(config, temperature, iterations,
 
         plt.show()
 
+def fixed_temp_plot_two(config, temperature, iterations,
+                    energy_plot = True, length_plot = True, save = False, plot_name = None):
+
+    protein = Protein(config)
+    model = StandardModel(config, temperature, protein)
+
+    iterations = int(iterations) + 1 # so that iteration 0 becomes the starting state
+    energies_1 = np.zeros(iterations)
+    lengths_1 = np.zeros(iterations)
+    iterations_indeces = np.arange(iterations)
+
+    energies_1[0], lengths_1[0] = model.get_energy(), model.get_length()
+    for i in range(1, iterations):
+        energies_1[i] = model.next_state()
+        lengths_1[i] = model.get_length()
+    
+    protein = Protein(config)
+    model = StandardModel(config, temperature, protein)
+                      
+    energies_2 = np.zeros(iterations)
+    lengths_2 = np.zeros(iterations)
+                      
+    energies_2[0], lengths_120] = model.get_energy(), model.get_length()
+    for i in range(1, iterations):
+        energies_2[i] = model.next_state()
+        lengths_2[i] = model.get_length() 
+      
+    if energy_plot:
+        plt.plot(iterations_indeces, energies_1, lw = 0.2)
+        plt.plot(iterations_indeces, energies_2, lw = 0.2)
+
+        plt.grid(True)
+        plt.title(f'Length = {protein.length}, iterations = {iterations-1}, temperature = {temperature}')
+        plt.xlabel('Iterations')
+        plt.ylabel('Energy')
+
+        if save:
+            if plot_name is None:
+                plt.savefig(f'fixedplot_energy_length{protein.length}_iterations{iterations-1}_temp{temperature}.png')
+            else:
+                plt.savefig(plot_name)
+
+        plt.show()
+
+    if length_plot:
+        plt.plot(iterations_indeces, lengths_1, lw = 0.2)
+        plt.plot(iterations_indeces, lengths_2, lw = 0.2)
+
+        plt.grid(True)
+        plt.title(f'Length = {protein.length}, iterations = {iterations-1}, temperature = {temperature}')
+        plt.xlabel('Iterations')
+        plt.ylabel('Length')
+
+        if save:
+            if plot_name is None:
+                plt.savefig(f'fixedplot_length_length{protein.length}_iterations{iterations-1}_temp{temperature}.png')
+            else:
+                plt.savefig(plot_name)
+
+        plt.show()
 
 def var_temp_plot(config, start_temp, end_temp, temp_step_nr, iterations,
                   energy_plot = True, length_plot = True, save = False, plot_name = None):
@@ -77,7 +137,7 @@ def var_temp_plot(config, start_temp, end_temp, temp_step_nr, iterations,
         lengths[i] = model.get_length()
 
     if energy_plot:
-        plt.plot(iterations_indeces, energies)
+        plt.plot(iterations_indeces, energies, lw = 0.2)
         plt.plot(iterations_indeces, temps_iterator)
         
         plt.grid(True)
@@ -95,7 +155,7 @@ def var_temp_plot(config, start_temp, end_temp, temp_step_nr, iterations,
         plt.show()
 
     if length_plot:
-        plt.plot(iterations_indeces, lengths)
+        plt.plot(iterations_indeces, lengths, lw = 0.2)
         plt.plot(iterations_indeces, temps_iterator)
 
         plt.grid(True)
@@ -241,6 +301,7 @@ def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100
 
     plt.show()
     return ani
+
 
 
 
