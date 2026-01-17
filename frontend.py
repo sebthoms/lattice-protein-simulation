@@ -76,7 +76,7 @@ def fixed_temp_plot_two(config, temperature, iterations,
     energies_2 = np.zeros(iterations)
     lengths_2 = np.zeros(iterations)
                       
-    energies_2[0], lengths_120] = model.get_energy(), model.get_length()
+    energies_2[0], lengths_2[0] = model.get_energy(), model.get_length()
     for i in range(1, iterations):
         energies_2[i] = model.next_state()
         lengths_2[i] = model.get_length() 
@@ -301,6 +301,7 @@ def fixed_temp_animation(config, temperature, iterations, stride=1, interval=100
 
     plt.show()
     return ani
+
 
 
 
